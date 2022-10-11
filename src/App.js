@@ -1,7 +1,7 @@
 
 import ActorsPopulars from './actorsPopulars';
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 
 function App() {
@@ -10,10 +10,11 @@ function App() {
   useEffect(() => {
      request()
   }, [])
-  const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
+  const API_KEY = "224ce27b38a3805ecf6f6c36eb3ba9d0"
+  console.log("api_key =", API_KEY)
  let results
   const request = async()=>{
-    await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&page=1`)
+    await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}&language=en-US&page=1`)
     .then(res => {
       console.log('lalalalal', res.data.results)
       setActorsData(res.data.results)
@@ -27,9 +28,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Netflix like "actors"</h1>
+     Cast Match
       </header>
-<ActorsPopulars data={actorsData} />
+      <div>
+         <ActorsPopulars data={actorsData} />
+      </div>
+
     </div>
   );
 }

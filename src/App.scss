@@ -23,7 +23,18 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.movieShowcase__container {
+  display: flex;
+  flex-direction: row;
 
+}
+.actor-display {
+  margin: 5px;
+ 
+}
+.actor-picture {
+  height: 350px
+}
 .App-link {
   color: #61dafb;
 }
