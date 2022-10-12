@@ -45,10 +45,10 @@
   position: fixed; 
   width: 100%; 
   height: 100% !important ;
-  z-index: 2500; 
+  z-index: 2; 
   left: 0; 
   top: 0; 
-  color: purple !important;
+  color: purple;
   background-color: rgba(255, 0, 0, 0.5);
   transition: all .5s;
   &:hover {
@@ -58,6 +58,20 @@
  .overlay-inactive {
   display: none;
   }
+.show-modal {
+  display: flex;
+  position: sticky;
+  height: 100%;
+  width: 100%;
+  z-index: 3000;
+  border: 3px blue solid;
+  opacity: 1;
+  background-color: white;
+
+}
+.hide-modal {
+  display: none;
+}
 .App-link {
   color: #61dafb;
 }

@@ -27,7 +27,8 @@ render() {
       <h1 className="movieShowcase__heading">MOST POPULAR ACTORS (n°1 to 20)</h1>
       <div className="movieShowcase__container">
      
-  {dataArray !== undefined ? dataArray.map((e, i)=> <ActorCarousel actorInfos={e} />): null}
+  {dataArray !== undefined ? dataArray.map((e, i)=>
+   <ActorCarousel actorInfos={e} open={this.props.open} getActorId={this.props.getActorId} />): null}
     {/*   {results != undefined ?{ results} : null} */}
       {/* results.map((e, i)=> 
       <img 
