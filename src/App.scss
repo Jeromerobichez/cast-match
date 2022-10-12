@@ -26,15 +26,38 @@
 .movieShowcase__container {
   display: flex;
   flex-direction: row;
+  overflow: scroll;
 
 }
 .actor-display {
   margin: 5px;
+  cursor: pointer;
+  
+  :hover{
+      transform: scale(1.1);
+  }
  
 }
 .actor-picture {
   height: 350px
 }
+.overlay-active {
+  position: fixed; 
+  width: 100%; 
+  height: 100% !important ;
+  z-index: 2500; 
+  left: 0; 
+  top: 0; 
+  color: purple !important;
+  background-color: rgba(255, 0, 0, 0.5);
+  transition: all .5s;
+  &:hover {
+     transform: scale(1); 
+  }
+ }
+ .overlay-inactive {
+  display: none;
+  }
 .App-link {
   color: #61dafb;
 }
