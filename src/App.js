@@ -15,19 +15,18 @@ function App() {
   const [actorsData, setActorsData] = useState([])
   const [toggleModal, setToggleModal] = useState(false)
   const [overlay, setOverlay] = useState(false)
-  const [actorId, setActorId] = useState(2524)
+  const [actorId, setActorId] = useState(18918)
   const [actorDetails, setActorDetails] = useState([defaultValues])
 
-  const  getPopulars = async() => {
-    setActorsData(await requestPopularActors(1))
+  const  getPopulars = async(n) => {
+    setActorsData(await requestPopularActors(n))
     
   }
 
-  console.log('popularsactorsData :', actorsData)
   useEffect(() => {
     
     
-    getPopulars()
+    getPopulars(2)
   }, [])
   useEffect(() => {
     let data = actorsData.filter((e, i )=> e.id === actorId)
@@ -49,7 +48,7 @@ function App() {
   const getActorId = (id) => {
     setActorId(id)
   }
-  console.log("KNOWNFOR IN DETAILS", actorsData);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -61,7 +60,18 @@ function App() {
          <div className={toggleModal === true ? "show-modal": "hide-modal"}>
           <ActorDetails  actorDetails={actorDetails} />
          </div>
-         <ActorsPopulars data={actorsData} open={openActorModal} getActorId={getActorId} />
+         <ActorsPopulars /* data={actorsData} */
+         page={1}
+          open={openActorModal}
+           getActorId={getActorId} />
+           <ActorsPopulars /* data={actorsData} */
+         page={2}
+          open={openActorModal}
+           getActorId={getActorId} />
+           <ActorsPopulars /* data={actorsData} */
+         page={3}
+          open={openActorModal}
+           getActorId={getActorId} />
       </div>
 
     </div>
