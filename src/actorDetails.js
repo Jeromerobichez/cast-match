@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const ActorDetails = ({id, API_KEY, actorDetails}) => {
+export const ActorDetails = ({ actorDetails}) => {
    /*  const [actorDetails, setActorDetails] = useState([]) */
     console.log("actorsData in details ", actorDetails)
 

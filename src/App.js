@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import axios from 'axios';
 import { ActorDetails } from './actorDetails';
+import { requestPopularActors } from './Requests';
 
 const defaultValues = {
   name: "coucou",
@@ -17,48 +18,30 @@ function App() {
   const [actorId, setActorId] = useState(2524)
   const [actorDetails, setActorDetails] = useState([defaultValues])
 
+  const  getPopulars = async() => {
+    setActorsData(await requestPopularActors(1))
+    
+  }
 
-
-  let dataProps
+  console.log('popularsactorsData :', actorsData)
   useEffect(() => {
-     request()
+    
+    
+    getPopulars()
   }, [])
   useEffect(() => {
     let data = actorsData.filter((e, i )=> e.id === actorId)
     setActorDetails(data[0])
-    console.log("KNOWNFOR IN DETAILS", data);
+    
 
  }, [actorId, actorsData])
-
-
-  const API_KEY = "224ce27b38a3805ecf6f6c36eb3ba9d0"
-
- let results
-
-  const request = async()=>{
-    await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}&language=en-US&page=1`)
-    .then(res => {
-      console.log('lalalalal', res.data.results)
-      setActorsData(res.data.results)
-       
-     })
-     .catch(e => {
-       console.log("erreur catché", e.message)
-     })
-  }
-
- 
 
   const openActorModal = async(id) => {
     setToggleModal(true)
     setOverlay(true)
     setActorId(id)
   }
-  const displayActorModal = () => {
-    openActorModal()
-
-
-  }
+ 
   const closeActorModal = () => {
     setToggleModal(false)
     setOverlay(false)
@@ -66,7 +49,7 @@ function App() {
   const getActorId = (id) => {
     setActorId(id)
   }
-
+  console.log("KNOWNFOR IN DETAILS", actorsData);
   return (
     <div className="App">
       <header className="App-header">
@@ -76,7 +59,7 @@ function App() {
       <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
          onClick={closeActorModal}></div>
          <div className={toggleModal === true ? "show-modal": "hide-modal"}>
-          <ActorDetails  id={actorId} API_KEY={API_KEY} actorDetails={actorDetails} />
+          <ActorDetails  actorDetails={actorDetails} />
          </div>
          <ActorsPopulars data={actorsData} open={openActorModal} getActorId={getActorId} />
       </div>
