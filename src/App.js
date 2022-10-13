@@ -17,6 +17,8 @@ function App() {
   const [overlay, setOverlay] = useState(false)
   const [actorId, setActorId] = useState(18918)
   const [actorDetails, setActorDetails] = useState([defaultValues])
+  const [page, setPage] = useState(1)
+
 
   const  getPopulars = async(n) => {
     setActorsData(await requestPopularActors(n))
@@ -26,8 +28,8 @@ function App() {
   useEffect(() => {
     
     
-    getPopulars(2)
-  }, [])
+    getPopulars(page)
+  }, [page])
   useEffect(() => {
     let data = actorsData.filter((e, i )=> e.id === actorId)
     setActorDetails(data[0])
@@ -35,10 +37,11 @@ function App() {
 
  }, [actorId, actorsData])
 
-  const openActorModal = async(id) => {
+  const openActorModal = async(id, page) => {
     setToggleModal(true)
     setOverlay(true)
     setActorId(id)
+    setPage(page)
   }
  
   const closeActorModal = () => {

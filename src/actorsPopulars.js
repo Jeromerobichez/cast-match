@@ -50,7 +50,7 @@ if (this.state.dataArray !== []) {
       <div className="movieShowcase__container">
 
   {dataArray !== undefined ? dataArray.map((e, i)=>
-   <ActorCarousel actorInfos={e} open={this.props.open} getActorId={this.props.getActorId} />): null} 
+   <ActorCarousel actorInfos={e} open={this.props.open} getActorId={this.props.getActorId} page={this.props.page} />): null} 
     {/*   {results != undefined ?{ results} : null} */}
       {/* results.map((e, i)=> 
       <img 

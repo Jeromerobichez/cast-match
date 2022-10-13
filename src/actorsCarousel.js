@@ -26,7 +26,7 @@ export default class ActorCarousel extends Component {
       let actorInfos = this.props.actorInfos
 
       const handleClick = () => {
-         this.props.open(actorInfos.id)
+         this.props.open(actorInfos.id, this.props.page)
       }
 
  const actorPictureUrl = `https://image.tmdb.org/t/p/w500/${actorInfos.profile_path}` 
