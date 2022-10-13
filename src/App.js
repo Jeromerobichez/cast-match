@@ -5,6 +5,7 @@ import './App.scss';
 import axios from 'axios';
 import { ActorDetails } from './actorDetails';
 import { requestPopularActors } from './Requests';
+import Form from './form';
 
 const defaultValues = {
   name: "coucou",
@@ -56,6 +57,7 @@ function App() {
     <div className="App">
       <header className="App-header">
      Cast Match
+     <Form />
       </header>
       <div>
       <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
