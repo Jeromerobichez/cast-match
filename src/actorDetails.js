@@ -6,15 +6,21 @@ export const ActorDetails = ({ actorDetails}) => {
     console.log("actorsData in details ", actorDetails)
 
 
-   
-   
-
+ 
      
    
   if (actorDetails !== undefined) {
+    const backgroundStyle = {
+      backgroundPosition: "right",
+      backgroundRepeat: "no-repeat",
+      width: "100%",
+      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${actorDetails.profile_path})`
+    }
 return (
 
-    <div className="modal__container">
+    <div className="modal__container"
+    style={backgroundStyle}
+    >
 
         <h1 className="modal__title">
         {actorDetails.name}
