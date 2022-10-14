@@ -2,6 +2,7 @@
   text-align: center;
   background-color: rgb(20,20,20);
   color: white;
+  line-height: var(--lh);
 }
 
 .App-logo {
@@ -63,7 +64,7 @@
   left: 0; 
   top: 0; 
   color: purple;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   transition: all .5s;
   &:hover {
      transform: scale(1); 
@@ -90,7 +91,7 @@
   left: 50px;
   width: 80%;
   z-index: 3;
-  border: 3px blue solid;
+  border-radius: 6px;
   opacity: 1;
   background-color: rgb(20,20,20);
 
@@ -101,16 +102,26 @@
 .movie-infos {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 5px;
+  overflow: hidden;
+
 }
   .movie-numero {
     margin: 5px;
+    align-self: center;
+  }
+  .movie-poster {
+
   }
   .movie-details{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     text-align: left;
+    height: 100%;
+
+    
 
   }
     .movie-date{
@@ -123,16 +134,29 @@
         font-weight: 500;
       }
     .movie-title-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
       width: 100%;
       margin-left: 10px;
+      --lh: 16px;
+      --max-lines: 6;
+      max-height: 72px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
     }
     .h4-title {
       font-size: 16px;
       font-weight: 700;
+      margin: 0 0 5px 0;
     }
     .movie-summary {
       font-size: 14px;
       font-weight: 100;
+
+      
     }
 .hide-modal {
   display: none;

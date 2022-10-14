@@ -107,7 +107,7 @@ const closeModal = () => {
         </h4> 
         <span className="movie-summary">{e.overview !== "" ? e.overview : "il n'y a pas de description disponible" }</span>
         </div>
-        <div className="movie-date">release date of the movie&nbsp;: <p className="date-span">  {new Date(e.release_date).toDateString()} </p> </div>
+        <div className="movie-date">Release date&nbsp;: <p className="date-span">  {new Date(e.release_date).toDateString()} </p> </div>
         </div>
         </div> )
        }  
