@@ -18,7 +18,7 @@ const Results = ({
   const [moviePitch, setMoviePitch] = useState("");
   const [moviePoster, setMoviePoster] = useState("");
   const [activeOverlay, setActiveOverlay] = useState(false);
-
+console.log("data", data)
 const getMovieId = (e) => {
   e.preventDefault()
   movieInfoDisplay()
@@ -67,7 +67,7 @@ const closeModal = () => {
             </div>
        </div>:
       data.length !== 0 ?
-        <div>
+        <div className="movies-results">
          
          {data.length > 1 ?
       
@@ -77,7 +77,7 @@ const closeModal = () => {
        {/* <Modal isShowing={modalDisplayed ? true : false}/> */}
        <div className={activeOverlay ? 'overlay-active': "overlay-inactive"}
         onClick={closeModal}> </div>
-       <div className= "modal-detail"
+       <div className= "modal-detail-modal"
          style={{display: modalDisplayed ?  "flex" : "none"}}>
            <h3>{movieTitle}</h3>
            <img src={`https://image.tmdb.org/t/p/w500/${moviePoster}`}
@@ -94,18 +94,20 @@ const closeModal = () => {
             src={`https://image.tmdb.org/t/p/w500/${secondPic}`}
             width={150}/>
         </div>
-      {data.map((e, i)=><div className="movie-title">
-        <span className="movie-numero">n° {i+1}</span>
+      {data.map((e, i)=> <div className="movie-infos">
+        <span className="movie-numero">{i+1}</span>
         <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`}
         width={100}
         onClick={() => movieInfoDisplay(e.id)}/>
-        <div className="movie-infos">
-       
+        <div className="movie-details">
+       <div className="movie-title-summary">
         <h4 className="h4-title"
         onClick={() => movieInfoDisplay(e.id)}>{e.title} 
        
         </h4> 
-        <p className="movie-date">release date of the movie : {e.release_date} </p>
+        <span className="movie-summary">{e.overview !== "" ? e.overview : "il n'y a pas de description disponible" }</span>
+        </div>
+        <div className="movie-date">release date of the movie&nbsp;: <p className="date-span">  {new Date(e.release_date).toDateString()} </p> </div>
         </div>
         </div> )
        }  

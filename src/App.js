@@ -57,11 +57,14 @@ function App() {
     <div className="App">
       <header className="App-header">
      Cast Match
-     <Form />
+   
       </header>
+     
       <div>
+      <Form />
       <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
          onClick={closeActorModal}></div>
+         
          <div className={toggleModal === true ? "show-modal": "hide-modal"}>
           <ActorDetails  actorDetails={actorDetails} />
          </div>

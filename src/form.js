@@ -11,6 +11,7 @@ function Form  ()  {
     const [secondActorPic, setSecondActorPic] = useState('');
     const [firstActorName, setFirstActorName] = useState('');
     const [secondActorName, setSecondActorName] = useState('');
+    const [toggleModal, setToggleModal] = useState(false);
 
 
       let data = {nameFirstActor, nameSecondActor };
@@ -36,12 +37,15 @@ function Form  ()  {
        setSecondActorPic(res.data.secondPic)
        setFirstActorName(res.data.nameActorOne)
        setSecondActorName(res.data.nameActorTwo)
-        
+       setToggleModal(true)
       })
       .catch(e => {
         setMessage(`Erreur lors de la création : ${e.message}`)
         console.log(message)
       })
+  }
+  const closeActorModal = () => {
+    setToggleModal(false)
   }
     return (
      
@@ -88,6 +92,10 @@ function Form  ()  {
        
         </div>
         </div>
+        
+        <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
+         onClick={closeActorModal}></div>
+         <div className={toggleModal === true ? "show-modal-results": "hide-modal"}>
   <Results data={resultats}
    firstActor={nameFirstActor}
     secondActor={nameSecondActor} 
@@ -95,6 +103,7 @@ function Form  ()  {
     secondPic={secondActorPic}
     firstActorName={firstActorName} 
     secondActorName={secondActorName}/> 
+    </div>
     </div>
    
     )
