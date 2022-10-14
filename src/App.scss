@@ -30,17 +30,50 @@
   display: flex;
   flex-direction: row;
   overflow: scroll;
-  height: 300px;
+  --h: 300px;
+  height: var(--h);
   align-items: center;
+  --height-picture:  175px;
 
 }
+  .button-scroll-left {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    height: var(--height-picture);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    padding: 5px;
+  }
+  .show-chevron {
+    font-size: 40px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .hide-chevron {
+    display: none;
+  }
+
+  .button-scroll-right {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    right: 0;
+    height: var(--height-picture);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    padding: 5px;
+  }
 .actor-display {
   margin: 5px;
   cursor: pointer;
 
 }
 .actor-picture {
-  height: 175px;
+  height: var(--height-picture);
   border-radius: 4px;
   object-fit: fill;
  &:hover{

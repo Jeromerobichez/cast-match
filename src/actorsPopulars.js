@@ -8,7 +8,8 @@ import ActorCarousel from './actorsCarousel';
 
 class ActorsPopulars extends Component {
   state = {
-    dataArray: []
+    dataArray: [],
+    showButton: false
    
  }
 
@@ -20,7 +21,10 @@ componentDidMount() {
  getPopulars(this.props.page)
   console.log("wolo",this.state.dataArray)
 }
- 
+handleButtonToggle = () => {
+this.setState({showButton: !this.state.showButton})
+}
+
 // https://api.themoviedb.org/3/person/popular?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&page=1
 
 
@@ -47,17 +51,14 @@ if (this.state.dataArray !== []) {
   return (
     <>
       <h1 className="movieShowcase__heading">MOST POPULAR ACTORS (n°1 to 20)</h1>
-      <div className="movieShowcase__container">
-
+      <div className="movieShowcase__container"
+        onMouseEnter={this.handleButtonToggle}
+        onMouseLeave={this.handleButtonToggle}
+        >
+<span className='button-scroll-left'><span className={this.state.showButton ? "show-chevron": "hide-chevron"}>{"<"}</span></span>
   {dataArray !== undefined ? dataArray.map((e, i)=>
    <ActorCarousel actorInfos={e} open={this.props.open} getActorId={this.props.getActorId} page={this.props.page} />): null} 
-    {/*   {results != undefined ?{ results} : null} */}
-      {/* results.map((e, i)=> 
-      <img 
-        src={`https://image.tmdb.org/t/p/w500/${e.profile_path}`}
-        alt={e.name}
-        className="movieShowcase__container--movie-image"
-        />): null} */}
+<span className='button-scroll-right'><span className={this.state.showButton ? "show-chevron": "hide-chevron"}>{">"}</span></span>
       </div>
     </>
   )
