@@ -11,21 +11,21 @@ export const ActorDetails = ({ actorDetails}) => {
    
   if (actorDetails !== undefined) {
     const backgroundStyle = {
-      backgroundPosition: "right",
+      backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      width: "100%",
-      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${actorDetails.profile_path})`
+      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${actorDetails.profile_path})`,
+
     }
 return (
-
-    <div className="modal__container"
-    style={backgroundStyle}
+<div className='modal-center'>
+    <div className="modal-container"
+   
     >
-
-        <h1 className="modal__title">
+<div  className="modal-head"  style={backgroundStyle}>
+        <h1 className="modal-title">
         {actorDetails.name}
         </h1>
-      
+      </div>
    <p className="modal__info">
           <span className="modal__rating">
             Popularity: {actorDetails.popularity}
@@ -36,7 +36,7 @@ return (
             <span> Known for: </span> 
             <ul>
           {actorDetails.known_for !== undefined ? actorDetails.known_for.map((k, i)=>
-          <li >
+          <li style={{"list-style": "none"}} >
             <span
             className='li-knownfor'
             >{k.title}</span></li>): "coucou"}</ul>
@@ -50,6 +50,8 @@ return (
           My List
         </button>  */}
       </div> 
+      </div>
+
 )
 }
 
