@@ -94,12 +94,26 @@ const closeModal = () => {
             src={`https://image.tmdb.org/t/p/w500/${secondPic}`}
             width={150}/>
         </div>
-      {data.map((e, i)=> <div className="movie-infos">
-        <span className="movie-numero">{i+1}</span>
-        <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`}
+        <table className='results-table'>
+          <tbody>
+          <tr>
+            <th className="td-movie-numero"></th>
+            <th className='td-movie-poster'></th>
+            <th className="td-movie-details"></th>
+            <th className="td-movie-date"></th>
+          </tr>
+
+      {data.map((e, i)=> 
+     
+        <tr className="movie-infos">
+     
+        
+        <td className="td-movie-numero"><span className="movie-numero">{i+1}</span></td>
+       <td className='td-movie-poster'> <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`}
         width={100}
         onClick={() => movieInfoDisplay(e.id)}/>
-        <div className="movie-details">
+        </td>
+        <td className="td-movie-details"> {/*  <div className="movie-details">  */}
        <div className="movie-title-summary">
         <h4 className="h4-title"
         onClick={() => movieInfoDisplay(e.id)}>{e.title} 
@@ -107,10 +121,17 @@ const closeModal = () => {
         </h4> 
         <span className="movie-summary">{e.overview !== "" ? e.overview : "il n'y a pas de description disponible" }</span>
         </div>
-        <div className="movie-date">Release date&nbsp;: <p className="date-span">  {new Date(e.release_date).toDateString()} </p> </div>
-        </div>
-        </div> )
+       {/*  </div> */}
+        </td>
+
+        <td className="td-movie-date">
+        <div className="movie-date">Release date&nbsp;: <p className="date-span">  {new Date(e.release_date).toDateString()} </p> </div></td> 
+
+        </tr>
+        )
        }  
+       </tbody>
+        </table>
     
         
         </div>
