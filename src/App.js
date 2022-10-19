@@ -6,6 +6,9 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet'
 import { ActorDetails } from './actorDetails';
 import { requestPopularActors } from './Requests';
+import CastMatchLogo from './cast.png'
+import Loupe from './loupe.svg'
+import Compte from './compte.svg'
 import Form from './form';
 
 const defaultValues = {
@@ -13,6 +16,7 @@ const defaultValues = {
   known_for: ["a", "b", "c"],
   title: "default title"
 }
+const navItems = ["Home","Trending actors","Actors by nationality"]
 function App() {
   const [actorsData, setActorsData] = useState([])
   const [toggleModal, setToggleModal] = useState(false)
@@ -59,12 +63,31 @@ function App() {
      <Helmet>
           <title>Cast Match</title>
         </Helmet>
-      <header className="App-header">
-     Cast Match
-   
-      </header>
-     
+
       <div>
+        <div className='navbar'>
+          <div className='navbar-left'>
+          <img className='navbar-logo'
+              src={CastMatchLogo}
+               alt='cast match'
+                /> 
+                {navItems.map((item, i)=>
+          <span className='navbar-item'>{item}
+          </span>
+           )}
+          </div>
+          <div className='navbar-right'>
+            <img className='navbar-right-svg'
+            src={Loupe} 
+                  height={25}/>
+            <img className='navbar-right-svg'
+            src={Compte}
+                 height={25}/>
+
+
+          </div>
+      </div>
+       
       <Form />
       <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
          onClick={closeActorModal}></div>
