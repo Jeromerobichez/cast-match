@@ -35,6 +35,8 @@ this.setState({showButton: !this.state.showButton})
 
  
 render() {
+const startRank = ((this.props.page-1)*20)+1
+const endRank = this.props.page*20
 
   const slide = (shift) => {
      this.myRef.current.scrollLeft += shift; 
@@ -43,7 +45,7 @@ render() {
  */  };
 
  
-  console.log("DATA ARRAY", this.state.dataArray)
+  console.log("page", this.props.page)
   let dataArray = this.state.dataArray
   /* const data
   Array = this.props.data
@@ -59,7 +61,7 @@ render() {
 if (this.state.dataArray !== []) {
   return (
     <>
-      <h1 className="movieShowcase__heading">MOST POPULAR ACTORS (n°1 to 20)</h1>
+      <h1 className="movieShowcase__heading">MOST POPULAR ACTORS (n°{startRank} to {endRank})</h1>
       <div className="movieShowcase__container"
         onMouseEnter={this.handleButtonToggle}
         onMouseLeave={this.handleButtonToggle}
