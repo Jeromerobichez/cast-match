@@ -7,6 +7,10 @@ import ActorCarousel from './actorsCarousel';
 
 
 class ActorsPopulars extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
   state = {
     dataArray: [],
     showButton: false
@@ -32,6 +36,11 @@ this.setState({showButton: !this.state.showButton})
  
 render() {
 
+  const slide = (shift) => {
+     this.myRef.current.scrollLeft += shift; 
+     console.log("hhh",  shift)
+/*    console.log('hllo', this.myRef.current)
+ */  };
 
  
   console.log("DATA ARRAY", this.state.dataArray)
@@ -54,11 +63,16 @@ if (this.state.dataArray !== []) {
       <div className="movieShowcase__container"
         onMouseEnter={this.handleButtonToggle}
         onMouseLeave={this.handleButtonToggle}
+        ref={this.myRef}
         >
-<span className='button-scroll-left'><span className={this.state.showButton ? "show-chevron": "hide-chevron"}>{"<"}</span></span>
+<span className='button-scroll-left'
+      onClick={()=> slide(parseInt(`-${this.myRef.current.clientWidth}`))}><span className={this.state.showButton ? "show-chevron": "hide-chevron"}>{"<"}</span></span>
   {dataArray !== undefined ? dataArray.map((e, i)=>
-   <ActorCarousel actorInfos={e} open={this.props.open} getActorId={this.props.getActorId} page={this.props.page} />): null} 
-<span className='button-scroll-right'><span className={this.state.showButton ? "show-chevron": "hide-chevron"}>{">"}</span></span>
+  <div >
+   <ActorCarousel actorInfos={e} open={this.props.open} getActorId={this.props.getActorId} page={this.props.page} /></div>): null} 
+<span className='button-scroll-right'
+      onClick={()=> slide(this.myRef.current.clientWidth)}>
+  <span className={this.state.showButton ? "show-chevron": "hide-chevron"}>{">"}</span></span>
       </div>
     </>
   )
