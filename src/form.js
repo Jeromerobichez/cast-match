@@ -53,7 +53,6 @@ function Form  ()  {
     backgroundImage: "url('https://media.lesechos.com/api/v1/images/view/62c696f7cde6181c2d44dafb/1024x576-webp/0701967133971-web-tete.webp')",
     backgroundSize: 'cover', 
     backgroundRepeat: 'no-repeat',
-    objectFit: "fill"
 
   }
     return (
@@ -61,7 +60,7 @@ function Form  ()  {
     <div className='form-div'
        style={cinemaStyle}>
        <div >
-        <h3>This app is designed to give you the list of all the movies in which two actors appear together </h3>
+        <h3 className="form-div-h3">This app is designed to give you the list of all the movies in which two actors appear together </h3>
        {/*  <img src={Cinema} /> */}
           <div className='input-card'>
        <h3> Please Enter the two actors you want to search : </h3>

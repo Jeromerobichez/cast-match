@@ -62,8 +62,11 @@
  .form-div {
   background-position: center;
   height: 500px;
-
 } 
+  .form-div-h3 {
+    margin-top: 0 !important;
+    padding-top: 1rem;
+    }
 .movieShowcase__container {
   display: flex;
   flex-direction: row;
