@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Results from './Results'
+import Cinema from './cinema.jpeg'
 import axios from 'axios'
 
 function Form  ()  {
@@ -47,12 +48,21 @@ function Form  ()  {
   const closeActorModal = () => {
     setToggleModal(false)
   }
+
+  const cinemaStyle = {
+    backgroundImage: "url('https://media.lesechos.com/api/v1/images/view/62c696f7cde6181c2d44dafb/1024x576-webp/0701967133971-web-tete.webp')",
+    backgroundSize: 'cover', 
+    backgroundRepeat: 'no-repeat',
+    objectFit: "fill"
+
+  }
     return (
      
-    <div className='form-div'>
+    <div className='form-div'
+       style={cinemaStyle}>
        <div >
         <h3>This app is designed to give you the list of all the movies in which two actors appear together </h3>
-        
+       {/*  <img src={Cinema} /> */}
           <div className='input-card'>
        <h3> Please Enter the two actors you want to search : </h3>
         <div>
