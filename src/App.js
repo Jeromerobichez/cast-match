@@ -3,6 +3,7 @@ import ActorsPopulars from './actorsPopulars';
 import { useEffect, useState } from 'react';
 import './App.scss';
 import axios from 'axios';
+import { Helmet } from 'react-helmet'
 import { ActorDetails } from './actorDetails';
 import { requestPopularActors } from './Requests';
 import Form from './form';
@@ -55,6 +56,9 @@ function App() {
 
   return (
     <div className="App">
+     <Helmet>
+          <title>Cast Match</title>
+        </Helmet>
       <header className="App-header">
      Cast Match
    
