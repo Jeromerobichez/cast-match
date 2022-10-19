@@ -62,11 +62,54 @@
  .form-div {
   background-position: center;
   height: 500px;
+  font-family: Bebas Neue;
+ 
 } 
+  .form-div-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 20px;
+    width: 40%;
+  }
   .form-div-h3 {
     margin-top: 0 !important;
     padding-top: 1rem;
     }
+  .input-form {
+    padding: 10px;
+  }
+  .input-label-div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  
+  }
+  .input-label {
+    text-align: left;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  
+  }
+  .actor-input {
+    background-color: transparent;
+    color: white;
+  }
+  #submit-input {
+    border-radius: 4px;
+    margin: 5px;
+    padding: 10px;
+  }
+  .non-active-button {
+    background-color: rgb(39, 39, 39);
+    color: rgb(68, 68, 68);
+  }
+  .submit-button {
+    background-color: whitesmoke;
+    cursor: pointer;
+  }
 .movieShowcase__container {
   display: flex;
   flex-direction: row;

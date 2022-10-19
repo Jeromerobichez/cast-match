@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Results from './Results'
 import Cinema from './cinema.jpeg'
+import svgLogo from './castMatchSvg.svg'
 import axios from 'axios'
 
 function Form  ()  {
@@ -59,11 +60,12 @@ function Form  ()  {
      
     <div className='form-div'
        style={cinemaStyle}>
-       <div >
-        <h3 className="form-div-h3">This app is designed to give you the list of all the movies in which two actors appear together </h3>
-       {/*  <img src={Cinema} /> */}
+       <div className='form-div-container' >
+       <h1>Welcome on Cast Match</h1>
+        <span className="form-div-h3">This app is designed to give you the list of all the movies in which two actors appear together </span>
+   
           <div className='input-card'>
-       <h3> Please Enter the two actors you want to search : </h3>
+       <span> Please Enter the two actors you want to search : </span>
         <div>
         <div className='input-div'>
             <form className='input-form'>
