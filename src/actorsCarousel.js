@@ -15,14 +15,22 @@ export default class ActorCarousel extends Component {
       this.setState({ overlay: true });
 
    }
-   handleBoxToggle = () => {
-      this.setState({ toggleBigPicture: !this.state.toggleBigPicture });
-
-   }
-
+  
    
    
    render() {
+   console.log("togglBigPicture =>", this.state.toggleBigPicture)
+   const openBoxToggle = () => {
+ this.setState({ toggleBigPicture: true }); 
+     console.log("enter")
+
+   }
+   const closeBoxToggle = () => {
+ this.setState({ toggleBigPicture: false }); 
+      console.log("leave")
+
+   }
+
       const closeActorModal = () => {
          this.setState({ toggleModal: false })
          this.setState({ overlay: false });
@@ -37,19 +45,32 @@ export default class ActorCarousel extends Component {
  const actorPictureUrl = `https://image.tmdb.org/t/p/w500/${actorInfos.profile_path}` 
 
 return (
+   <div className='mouse-div'
+   onMouseEnter={openBoxToggle}
+   onMouseLeave={closeBoxToggle}
+   onClick={handleClick}>
          <div 
-         className={this.state.toggleBigPicture === true ? "actor-big-display": "actor-display"}
-         onMouseEnter={this.handleBoxToggle}
-         onMouseLeave={this.handleBoxToggle}
-         onClick={handleClick}>
-         
-       {/*   <h1>yoyo</h1> */}
-      
-<img src={actorPictureUrl}
+         className={this.state.toggleBigPicture === true ? "actor-non-display": "actor-display"}
+         >
+            <img src={actorPictureUrl}
    alt={actorInfos.name}
    className="actor-picture"
+  
    /> 
+     </div>
+         <div className={this.state.toggleBigPicture === true ? "actor-small-modal": "actor-non-display"}>
+         <img src={actorPictureUrl}
+               alt={actorInfos.name}
+               className="actor-picture"
+         /> 
+         <div>{actorInfos.name}</div>
+         <div>{actorInfos.popularity}</div>
+         </div>
+       {/*   <h1>yoyo</h1> */}
+      
+
    
+       
          </div>
       )
    }

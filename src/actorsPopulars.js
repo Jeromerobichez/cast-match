@@ -25,9 +25,12 @@ componentDidMount() {
  getPopulars(this.props.page)
   console.log("wolo",this.state.dataArray)
 }
-handleButtonToggle = () => {
-this.setState({showButton: !this.state.showButton})
+showButtonToggle = () => {
+this.setState({showButton: true})
 }
+hideButtonToggle = () => {
+  this.setState({showButton: false})
+  }
 
 // https://api.themoviedb.org/3/person/popular?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&page=1
 
@@ -63,8 +66,8 @@ if (this.state.dataArray !== []) {
     <>
       <h1 className="movieShowcase__heading">MOST POPULAR ACTORS (n°{startRank} to {endRank})</h1>
       <div className="movieShowcase__container"
-        onMouseEnter={this.handleButtonToggle}
-        onMouseLeave={this.handleButtonToggle}
+        onMouseEnter={this.showButtonToggle}
+        onMouseLeave={this.hideButtonToggle}
         ref={this.myRef}
         >
 <span className='button-scroll-left'
