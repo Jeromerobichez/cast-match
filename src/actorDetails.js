@@ -27,8 +27,9 @@ return (
         </h1>
       </div>
    <p className="modal__info">
+   Popularity:
           <span className="modal__rating">
-            Popularity: {actorDetails.popularity}
+             {actorDetails.popularity}
           </span>
         
         </p>
