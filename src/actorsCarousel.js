@@ -64,7 +64,7 @@ return (
                className="actor-picture"
          /> 
          <div>{actorInfos.name}</div>
-         <div>{actorInfos.popularity}</div>
+         <div className="modal-popularity">popularity : {actorInfos.popularity}</div>
          </div>
        {/*   <h1>yoyo</h1> */}
       
