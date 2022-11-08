@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { requestPopularActors } from './Requests';
+import { requestPopularActorsNew } from './Requests';
 
 
 import ActorCarousel from './actorsCarousel';
@@ -19,11 +19,11 @@ class ActorsPopulars extends Component {
 
 
 componentDidMount() {
-  const getPopulars = async(n) => {
-    this.setState({dataArray: await requestPopularActors(n)})
+  const getPopulars = async(page) => {
+    this.setState({dataArray: await requestPopularActorsNew({page})})
   }
  getPopulars(this.props.page)
-  console.log("wolo",this.state.dataArray)
+
 }
 showButtonToggle = () => {
 this.setState({showButton: true})
@@ -43,12 +43,12 @@ const endRank = this.props.page*20
 
   const slide = (shift) => {
      this.myRef.current.scrollLeft += shift; 
-     console.log("hhh",  shift)
+   
 /*    console.log('hllo', this.myRef.current)
  */  };
 
  
-  console.log("page", this.props.page)
+
   let dataArray = this.state.dataArray
   /* const data
   Array = this.props.data
@@ -60,7 +60,7 @@ const endRank = this.props.page*20
 
   // Call getMoviesRows function only when we get the data back 
   // from the API through redux 
- 
+
 if (this.state.dataArray !== []) {
   return (
     <>

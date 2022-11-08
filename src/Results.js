@@ -18,7 +18,7 @@ const Results = ({
   const [moviePitch, setMoviePitch] = useState("");
   const [moviePoster, setMoviePoster] = useState("");
   const [activeOverlay, setActiveOverlay] = useState(false);
-console.log("data", data)
+
 const getMovieId = (e) => {
   e.preventDefault()
   movieInfoDisplay()

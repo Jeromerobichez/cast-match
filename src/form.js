@@ -103,7 +103,7 @@ function Form  ()  {
        
         </div>
         </div>
-        
+
         <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
          onClick={closeActorModal}></div>
          <div className={toggleModal === true ? "show-modal-results": "hide-modal"}>

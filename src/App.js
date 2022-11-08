@@ -5,7 +5,7 @@ import './App.scss';
 import axios from 'axios';
 import { Helmet } from 'react-helmet'
 import { ActorDetails } from './actorDetails';
-import { requestPopularActors } from './Requests';
+import { requestPopularActorsNew } from './Requests';
 import CastMatchLogo from './cast.png'
 import Loupe from './loupe.svg'
 import Compte from './compte.svg'
@@ -19,27 +19,40 @@ const defaultValues = {
 const navItems = ["Home","Trending actors","Actors by nationality"]
 function App() {
   const [actorsData, setActorsData] = useState([])
+  const [actorsDataNew, setActorsDataNew] = useState([])
   const [toggleModal, setToggleModal] = useState(false)
   const [overlay, setOverlay] = useState(false)
   const [actorId, setActorId] = useState(18918)
   const [actorDetails, setActorDetails] = useState([defaultValues])
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(2)
 
 
-  const  getPopulars = async(n) => {
-    setActorsData(await requestPopularActors(n))
-    
+  const  getPopulars = async(page) => {
+ /* setActorsData(await requestPopularActors(n)) */
+  setActorsData(await requestPopularActorsNew({page})) 
+
+ 
   }
 
-  useEffect(() => {
-    
-    
-    getPopulars(page)
-  }, [page])
-  useEffect(() => {
-    let data = actorsData.filter((e, i )=> e.id === actorId)
+  const findActor = async () => {
+    let data =  await actorsData.filter((e, i )=> e.id === actorId)
     setActorDetails(data[0])
+     console.log("DATA =====>", data[0])
+  }
+
+
+  useEffect(() => {
     
+    console.log("paaaaage,", page)
+
+    getPopulars(page)
+    console.log("actorsData :", actorsData)
+
+  }, [page])
+  useEffect( () => {
+console.log("actorId", actorId)
+console.log("actorsData", actorsData)
+findActor()
 
  }, [actorId, actorsData])
 
@@ -48,6 +61,9 @@ function App() {
     setOverlay(true)
     setActorId(id)
     setPage(page)
+
+
+    console.log("actorsData dans openModal :", actorsData)
   }
  
   const closeActorModal = () => {
@@ -57,7 +73,7 @@ function App() {
   const getActorId = (id) => {
     setActorId(id)
   }
-
+  console.log("PAGE ::: ", page )
   return (
     <div className="App">
      <Helmet>
