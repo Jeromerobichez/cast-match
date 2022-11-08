@@ -1,35 +1,130 @@
 
 import ActorsPopulars from './actorsPopulars';
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
+import { Helmet } from 'react-helmet'
+import { ActorDetails } from './actorDetails';
+import { requestPopularActorsNew } from './Requests';
+import CastMatchLogo from './cast.png'
+import Loupe from './loupe.svg'
+import Compte from './compte.svg'
+import Form from './form';
 
+const defaultValues = {
+  name: "coucou",
+  known_for: ["a", "b", "c"],
+  title: "default title"
+}
+const navItems = ["Home","Trending actors","Actors by nationality"]
 function App() {
   const [actorsData, setActorsData] = useState([])
-  let dataProps
-  useEffect(() => {
-     request()
-  }, [])
-  const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
- let results
-  const request = async()=>{
-    await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&page=1`)
-    .then(res => {
-      console.log('lalalalal', res.data.results)
-      setActorsData(res.data.results)
-       
-     })
-     .catch(e => {
-       console.log("erreur catché", e.message)
-     })
+  const [actorsDataNew, setActorsDataNew] = useState([])
+  const [toggleModal, setToggleModal] = useState(false)
+  const [overlay, setOverlay] = useState(false)
+  const [actorId, setActorId] = useState(18918)
+  const [actorDetails, setActorDetails] = useState([defaultValues])
+  const [page, setPage] = useState(2)
+
+
+  const  getPopulars = async(page) => {
+ /* setActorsData(await requestPopularActors(n)) */
+  setActorsData(await requestPopularActorsNew({page})) 
+
+ 
   }
-  console.log("actoooooor", actorsData)
+
+  const findActor = async () => {
+    let data =  await actorsData.filter((e, i )=> e.id === actorId)
+    setActorDetails(data[0])
+     console.log("DATA =====>", data[0])
+  }
+
+
+  useEffect(() => {
+    
+    console.log("paaaaage,", page)
+
+    getPopulars(page)
+    console.log("actorsData :", actorsData)
+
+  }, [page])
+  useEffect( () => {
+console.log("actorId", actorId)
+console.log("actorsData", actorsData)
+findActor()
+
+ }, [actorId, actorsData])
+
+  const openActorModal = async(id, page) => {
+    setToggleModal(true)
+    setOverlay(true)
+    setActorId(id)
+    setPage(page)
+
+
+    console.log("actorsData dans openModal :", actorsData)
+  }
+ 
+  const closeActorModal = () => {
+    setToggleModal(false)
+    setOverlay(false)
+  }
+  const getActorId = (id) => {
+    setActorId(id)
+  }
+  console.log("PAGE ::: ", page )
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Netflix like "actors"</h1>
-      </header>
-<ActorsPopulars data={actorsData} />
+     <Helmet>
+          <title>Cast Match</title>
+        </Helmet>
+
+      <div>
+        <div className='navbar'>
+          <div className='navbar-left'>
+          <img className='navbar-logo'
+              src={CastMatchLogo}
+               alt='cast match'
+                /> 
+                {navItems.map((item, i)=>
+          <span className='navbar-item'>{item}
+          </span>
+           )}
+          </div>
+          <div className='navbar-right'>
+            <img className='navbar-right-svg'
+            src={Loupe} 
+                  height={25}/>
+            <img className='navbar-right-svg'
+            src={Compte}
+                 height={25}/>
+
+
+          </div>
+      </div>
+       
+      <Form />
+      <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
+         onClick={closeActorModal}></div>
+         
+         <div className={toggleModal === true ? "show-modal": "hide-modal"}>
+          <ActorDetails  actorDetails={actorDetails} />
+         </div>
+         <ActorsPopulars /* data={actorsData} */
+         page={1}
+          open={openActorModal}
+           getActorId={getActorId} />
+           <ActorsPopulars /* data={actorsData} */
+         page={2}
+          open={openActorModal}
+           getActorId={getActorId} />
+           <ActorsPopulars /* data={actorsData} */
+         page={3}
+          open={openActorModal}
+           getActorId={getActorId} />
+      </div>
+
     </div>
   );
 }
