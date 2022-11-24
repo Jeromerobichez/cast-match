@@ -22,13 +22,9 @@ export default class ActorCarousel extends Component {
  
    const openBoxToggle = () => {
  this.setState({ toggleBigPicture: true }); 
-     console.log("enter")
-
    }
    const closeBoxToggle = () => {
  this.setState({ toggleBigPicture: false }); 
-      console.log("leave")
-
    }
 
       const closeActorModal = () => {

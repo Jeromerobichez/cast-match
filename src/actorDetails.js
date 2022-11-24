@@ -2,13 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const ActorDetails = ({ actorDetails}) => {
-   /*  const [actorDetails, setActorDetails] = useState([]) */
-    console.log("actorsData in details ", actorDetails)
 
-
- 
-     
-   
   if (actorDetails !== undefined) {
     const backgroundStyle = {
       backgroundPosition: "center",

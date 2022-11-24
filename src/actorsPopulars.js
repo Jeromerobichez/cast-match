@@ -34,32 +34,15 @@ hideButtonToggle = () => {
 
 // https://api.themoviedb.org/3/person/popular?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&page=1
 
-
-
- 
 render() {
 const startRank = ((this.props.page-1)*20)+1
 const endRank = this.props.page*20
 
   const slide = (shift) => {
      this.myRef.current.scrollLeft += shift; 
-   
-/*    console.log('hllo', this.myRef.current)
- */  };
-
- 
+     };
 
   let dataArray = this.state.dataArray
-  /* const data
-  Array = this.props.data
-
-  console.log("dataArray =>", dataArray)
- */
-
-  
-
-  // Call getMoviesRows function only when we get the data back 
-  // from the API through redux 
 
 if (this.state.dataArray !== []) {
   return (

@@ -37,21 +37,14 @@ function App() {
   const findActor = async () => {
     let data =  await actorsData.filter((e, i )=> e.id === actorId)
     setActorDetails(data[0])
-     console.log("DATA =====>", data[0])
   }
 
 
   useEffect(() => {
-    
-    console.log("paaaaage,", page)
-
     getPopulars(page)
-    console.log("actorsData :", actorsData)
 
   }, [page])
   useEffect( () => {
-console.log("actorId", actorId)
-console.log("actorsData", actorsData)
 findActor()
 
  }, [actorId, actorsData])
@@ -62,8 +55,6 @@ findActor()
     setActorId(id)
     setPage(page)
 
-
-    console.log("actorsData dans openModal :", actorsData)
   }
  
   const closeActorModal = () => {
@@ -73,7 +64,6 @@ findActor()
   const getActorId = (id) => {
     setActorId(id)
   }
-  console.log("PAGE ::: ", page )
   return (
     <div className="App">
      <Helmet>
