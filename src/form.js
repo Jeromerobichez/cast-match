@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import Results from './Results'
+import React, {useEffect, useState} from 'react';
+
 import Cinema from './cinema.jpeg'
-import svgLogo from './castMatchSvg.svg'
+import Results from './Results'
 import axios from 'axios'
+import svgLogo from './castMatchSvg.svg'
 
 function Form  ()  {
     const [nameFirstActor, setNameFirstActor] = useState('');
@@ -31,8 +32,8 @@ function Form  ()  {
  const submitForm = e => {
     e.preventDefault()
     axios
-      .post('https://back-end-cinema.osc-fr1.scalingo.io/api', data)
-      /* .post('http://localhost:5000/api', data)  */
+      /* .post('https://back-end-cinema.osc-fr1.scalingo.io/api', data) */
+      .post('http://localhost:5000/api', data) 
       .then(res => {
        setResultats(res.data.results)
        setFirstActorPic(res.data.firstPic)
