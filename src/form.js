@@ -6,6 +6,7 @@ import axios from 'axios'
 import svgLogo from './castMatchSvg.svg'
 
 function Form  ()  {
+  
     const [nameFirstActor, setNameFirstActor] = useState('');
     const [nameSecondActor, setNameSecondActor] = useState('');
     const [message, setMessage] = useState(null);
@@ -47,6 +48,7 @@ function Form  ()  {
         console.log(message)
       })
   }
+  
   const closeActorModal = () => {
     setToggleModal(false)
   }

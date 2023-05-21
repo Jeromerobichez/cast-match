@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { requestPopularActorsNew } from './Requests';
-
 
 import ActorCarousel from './actorsCarousel';
-
-
+import { requestPopularActorsNew } from './Requests';
 
 class ActorsPopulars extends Component {
   constructor(props) {
@@ -38,8 +35,8 @@ render() {
 const startRank = ((this.props.page-1)*20)+1
 const endRank = this.props.page*20
 
-  const slide = (shift) => {
-     this.myRef.current.scrollLeft += shift; 
+  const slide = (scrollToMake) => {
+     this.myRef.current.scrollLeft += scrollToMake; 
      };
 
   let dataArray = this.state.dataArray
@@ -47,8 +44,8 @@ const endRank = this.props.page*20
 if (this.state.dataArray !== []) {
   return (
     <>
-      <h1 className="movieShowcase__heading">MOST POPULAR ACTORS (n°{startRank} to {endRank})</h1>
-      <div className="movieShowcase__container"
+      <h1 className="carrousel-heading">MOST POPULAR ACTORS (n°{startRank} to {endRank})</h1>
+      <div className="carrousel-container"
         onMouseEnter={this.showButtonToggle}
         onMouseLeave={this.hideButtonToggle}
         ref={this.myRef}
