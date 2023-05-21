@@ -110,7 +110,7 @@
     background-color: whitesmoke;
     cursor: pointer;
   }
-.movieShowcase__container {
+.carrousel-container {
   display: flex;
   flex-direction: row;
   overflow: scroll;
@@ -185,12 +185,8 @@
   z-index: 2; 
   left: 0; 
   top: 0; 
-  color: purple;
   background-color: rgba(0, 0, 0, 0.7);
   transition: all .5s;
-  &:hover {
-     transform: scale(1); 
-  }
  }
  .overlay-inactive {
   display: none;
@@ -258,6 +254,7 @@
     font-size: 14px;
     font-weight: 400;
   }
+
 .show-modal-results {
   position: absolute;
   top: 50px;
@@ -267,9 +264,8 @@
   border-radius: 6px;
   opacity: 1;
   background-color: rgb(20,20,20);
-
-
 }
+
 .actor-pics {
   margin: 5px;
   border-radius: 6px;
@@ -369,6 +365,7 @@
   text-decoration: none;
   
 }
+
 .hide-modal {
   display: none;
 }

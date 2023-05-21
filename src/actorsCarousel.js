@@ -62,10 +62,6 @@ return (
          <div>{actorInfos.name}</div>
          <div className="modal-popularity">popularity : {actorInfos.popularity}</div>
          </div>
-       {/*   <h1>yoyo</h1> */}
-      
-
-   
        
          </div>
       )

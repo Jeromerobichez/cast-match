@@ -1,15 +1,16 @@
-
-import ActorsPopulars from './actorsPopulars';
-import { useEffect, useState } from 'react';
 import './App.scss';
-import axios from 'axios';
-import { Helmet } from 'react-helmet'
+
+import { useEffect, useState } from 'react';
+
 import { ActorDetails } from './actorDetails';
-import { requestPopularActorsNew } from './Requests';
+import ActorsPopulars from './actorsPopulars';
 import CastMatchLogo from './cast.png'
-import Loupe from './loupe.svg'
 import Compte from './compte.svg'
 import Form from './form';
+import { Helmet } from 'react-helmet'
+import Loupe from './loupe.svg'
+import axios from 'axios';
+import { requestPopularActorsNew } from './Requests';
 
 const defaultValues = {
   name: "coucou",
@@ -101,7 +102,7 @@ findActor()
          <div className={toggleModal === true ? "show-modal": "hide-modal"}>
           <ActorDetails  actorDetails={actorDetails} />
          </div>
-         <ActorsPopulars /* data={actorsData} */
+         <ActorsPopulars data={actorsData}
          page={1}
           open={openActorModal}
            getActorId={getActorId} />

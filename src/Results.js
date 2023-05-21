@@ -1,5 +1,5 @@
+import React, {useEffect, useState} from 'react';
 
-import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 const Results = ({
   data,
@@ -27,7 +27,7 @@ const getMovieId = (e) => {
   const movieInfoDisplay = (id) => {
   
     axios 
-      .post('https://back-end-cinema.osc-fr1.scalingo.io/movie-detail', {id}) 
+      .post('http://localhost:5000/api/movie-detail', {id}) 
       /* .post("http://localhost:5000/movie-detail", {id}) */ //  http://localhost:5000/movie-detail
       .then(res => {
        
