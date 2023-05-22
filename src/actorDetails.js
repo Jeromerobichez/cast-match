@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
+
 import axios from 'axios';
 
 export const ActorDetails = ({ actorDetails}) => {
 
   if (actorDetails !== undefined) {
     const backgroundStyle = {
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
+
       backgroundImage: `url(https://image.tmdb.org/t/p/w500/${actorDetails.profile_path})`,
 
     }
@@ -20,15 +20,15 @@ return (
         {actorDetails.name}
         </h1>
       </div>
-   <p className="modal__info">
+   <p className="modal-info">
    Popularity:
-          <span className="modal__rating">
+          <span className="modal-rating">
              {actorDetails.popularity}
           </span>
         
         </p>
-           <p className="modal__overview">
-            <span> Known for: </span> 
+           <p className="modal-overview">
+            <h3> Known for: </h3> 
             <ul>
           {actorDetails.known_for !== undefined ? actorDetails.known_for.map((k, i)=>
           <li style={{"list-style": "none"}} >
