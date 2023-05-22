@@ -10,6 +10,7 @@ export const ActorDetails = ({ actorDetails}) => {
       backgroundImage: `url(https://image.tmdb.org/t/p/w500/${actorDetails.profile_path})`,
 
     }
+  
 return (
 <div className='modal-center'>
     <div className="modal-container"
@@ -31,6 +32,7 @@ return (
             <h3> Known for: </h3> 
             <ul>
           {actorDetails.known_for !== undefined ? actorDetails.known_for.map((k, i)=>
+        
           <li style={{"list-style": "none"}} >
             <span
             className='li-knownfor'

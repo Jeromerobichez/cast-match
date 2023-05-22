@@ -121,6 +121,12 @@
   scroll-behavior: smooth;
 
 }
+.carrousel-heading {
+  font-family: Helvetica Neue;
+  text-align: left;
+  font-size: 0.8rem;
+  margin-bottom: -50px;
+}
   .button-scroll-left {
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
@@ -240,6 +246,14 @@
     margin: 0;
     height: 50vh;
   }
+
+.unknown-div {
+  padding: 20vh;
+}
+.sorry-div {
+
+  padding: 20vh;
+}
 .mouse-div{
   cursor: pointer;
 }  
