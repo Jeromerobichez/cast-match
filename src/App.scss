@@ -204,7 +204,7 @@
   width: 80%;
 } */
 .show-modal {
-  position: sticky;
+  position: fixed;
   top: 100px;
   left: 25%;
   width: 50%;
@@ -256,7 +256,11 @@
 }
 .mouse-div{
   cursor: pointer;
-}  
+} 
+.movie-detail-container{
+  position: absolute;
+  
+} 
 .movie-detail-modal {
   display: flex;
   flex-direction: column;
