@@ -42,6 +42,7 @@ function Form  ()  {
        setFirstActorName(res.data.nameActorOne)
        setSecondActorName(res.data.nameActorTwo)
        setToggleModal(true)
+
       })
       .catch(e => {
         setMessage(`Erreur lors de la création : ${e.message}`)
@@ -116,7 +117,8 @@ function Form  ()  {
     firstPic={firstActorPic}
     secondPic={secondActorPic}
     firstActorName={firstActorName} 
-    secondActorName={secondActorName}/> 
+    secondActorName={secondActorName}
+   /> 
     </div>
     </div>
    

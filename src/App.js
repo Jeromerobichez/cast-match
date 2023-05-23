@@ -27,12 +27,10 @@ function App() {
   const [actorDetails, setActorDetails] = useState([defaultValues])
   const [page, setPage] = useState(2)
 
-
   const  getPopulars = async(page) => {
  /* setActorsData(await requestPopularActors(n)) */
   setActorsData(await requestPopularActorsNew({page})) 
 
- 
   }
 
   const findActor = async () => {
@@ -55,7 +53,6 @@ findActor()
     setOverlay(true)
     setActorId(id)
     setPage(page)
-
   }
  
   const closeActorModal = () => {
@@ -65,6 +62,8 @@ findActor()
   const getActorId = (id) => {
     setActorId(id)
   }
+  
+
   return (
     <div className="App">
      <Helmet>
@@ -86,9 +85,11 @@ findActor()
           <div className='navbar-right'>
             <img className='navbar-right-svg'
             src={Loupe} 
+            alt="une loupe"
                   height={25}/>
             <img className='navbar-right-svg'
             src={Compte}
+            alt='un compte utilisteur'
                  height={25}/>
 
 
