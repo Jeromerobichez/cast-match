@@ -273,6 +273,10 @@
   position:fixed;
   padding: 3vh;
 }
+  .li-knownfor{
+    cursor: pointer;
+    padding: 2px;
+  }
   .modal-poster {
     display: block;
     margin: auto;
@@ -352,7 +356,7 @@
     align-self: center;
   }
   .movie-poster {
-
+    cursor: pointer;
   }
   .movie-details{
     display: flex;
@@ -391,6 +395,7 @@
       font-size: 16px;
       font-weight: 700;
       margin: 0 0 5px 0;
+      cursor: pointer;
     }
     .movie-summary {
       font-size: 14px;

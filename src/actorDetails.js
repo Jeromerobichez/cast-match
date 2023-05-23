@@ -65,23 +65,24 @@ return (
         </h1>
       </div>
    <p className="modal-info">
-   Popularity:
+   Popularity :
           <span className="modal-rating">
              {actorDetails.popularity}
           </span>
         
         </p>
            <p className="modal-overview">
-            <h3> Known for: </h3> 
+            <h3> Known for : </h3> 
             <ul>
           {actorDetails.known_for !== undefined ? actorDetails.known_for.map((k, i)=>
         
           <li style={{"list-style": "none"}}
-           onClick={() => movieInfoDisplay(k.id)} >
+           onClick={() => movieInfoDisplay(k.id)}
+           className='li-knownfor' >
             <span
-            className='li-knownfor'
             
-            >{k.title}</span></li>): "coucou"}</ul>
+            
+            >{k.title}</span></li>): ""}</ul>
          </p> 
 
         
