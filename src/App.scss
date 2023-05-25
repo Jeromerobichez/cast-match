@@ -268,6 +268,8 @@
   position: absolute;
   
 } 
+;.modal-container{
+}
 .movie-detail-modal {
   display: flex;
   flex-direction: column;
@@ -279,6 +281,9 @@
   z-index: 4;
   position:fixed;
   padding: 3vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
   .li-knownfor{
     cursor: pointer;
@@ -297,6 +302,7 @@
   top: 0; 
   background-color: rgba(0, 0, 0, 0.8);
   transition: all .5s;
+  height: 100vh;
 }
 .second-overlay-inactive {
  display:none;
