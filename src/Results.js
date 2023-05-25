@@ -132,18 +132,13 @@ const Results = ({
                       </td>
                       <td className="td-movie-date">
                         <div className="movie-date">Release date&nbsp;: <p className="date-span">  {new Date(e.release_date).toDateString()} </p> </div></td>
-
                     </tr>
                   )
                   }
                 </tbody>
               </table>
-
-
             </div>
             :
-
-
             <div className="no-input">The list will appear here</div>
   )
 }

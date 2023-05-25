@@ -53,7 +53,9 @@ function Form() {
       style={cinemaStyle}>
       <div className='form-div-container' >
         <h1>Welcome on Cast Match</h1>
-        <span className="form-div-h3">This app is designed to give you the list of all the movies in which two actors appear together </span>
+        <span className="form-div-h3">This app is designed to give you the list of all
+         the movies in which two actors appear together 
+         </span>
 
         <div className='input-card'>
           <span> Please Enter the two actors you want to search : </span>
@@ -81,7 +83,7 @@ function Form() {
                   <label>
                     <input type="submit"
                       id="submit-input"
-                      className={nameFirstActor != '' && nameSecondActor != '' ? 'submit-button' : 'non-active-button'}
+                      className={nameFirstActor !== '' && nameSecondActor !== '' ? 'submit-button' : 'non-active-button'}
                       onClick={submitForm}
                       value="Submit your two actors" />
 
