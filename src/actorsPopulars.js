@@ -40,7 +40,7 @@ class ActorsPopulars extends Component {
     };
 
     let dataArray = this.state.dataArray
-
+    console.log("props :", this.props)
     if (this.state.dataArray !== []) {
       return (
         <>

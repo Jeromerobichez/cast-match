@@ -17,7 +17,7 @@ const defaultValues = {
   known_for: ["a", "b", "c"],
   title: "default title"
 }
-const navItems = ["Home","Trending actors","Actors by nationality"]
+const navItems = ["Home", "Trending actors", "Actors by nationality"]
 function App() {
   const [actorsData, setActorsData] = useState([])
   const [actorsDataNew, setActorsDataNew] = useState([])
@@ -27,34 +27,33 @@ function App() {
   const [actorDetails, setActorDetails] = useState([defaultValues])
   const [page, setPage] = useState(2)
 
-  const  getPopulars = async(page) => {
- /* setActorsData(await requestPopularActors(n)) */
-  setActorsData(await requestPopularActorsNew({page})) 
+  const getPopulars = async (page) => {
+    /* setActorsData(await requestPopularActors(n)) */
+    setActorsData(await requestPopularActorsNew({ page }))
 
   }
 
   const findActor = async () => {
-    let data =  await actorsData.filter((e, i )=> e.id === actorId)
+    let data = await actorsData.filter((e, i) => e.id === actorId)
     setActorDetails(data[0])
   }
-
 
   useEffect(() => {
     getPopulars(page)
 
   }, [page])
-  useEffect( () => {
-findActor()
+  useEffect(() => {
+    findActor()
 
- }, [actorId, actorsData])
+  }, [actorId, actorsData])
 
-  const openActorModal = async(id, page) => {
+  const openActorModal = async (id, page) => {
     setToggleModal(true)
     setOverlay(true)
     setActorId(id)
     setPage(page)
   }
- 
+
   const closeActorModal = () => {
     setToggleModal(false)
     setOverlay(false)
@@ -62,59 +61,57 @@ findActor()
   const getActorId = (id) => {
     setActorId(id)
   }
-  
+
 
   return (
     <div className="App">
-     <Helmet>
-          <title>Cast Match</title>
-        </Helmet>
+      <Helmet>
+        <title>Cast Match</title>
+      </Helmet>
 
       <div>
         <div className='navbar'>
           <div className='navbar-left'>
-          <img className='navbar-logo'
+            <img className='navbar-logo'
               src={CastMatchLogo}
-               alt='cast match'
-                /> 
-                {navItems.map((item, i)=>
-          <span className='navbar-item'>{item}
-          </span>
-           )}
+              alt='cast match'
+            />
+            {navItems.map((item, i) =>
+              <span className='navbar-item'>{item}
+              </span>
+            )}
           </div>
           <div className='navbar-right'>
             <img className='navbar-right-svg'
-            src={Loupe} 
-            alt="une loupe"
-                  height={25}/>
+              src={Loupe}
+              alt="une loupe"
+              height={25} />
             <img className='navbar-right-svg'
-            src={Compte}
-            alt='un compte utilisteur'
-                 height={25}/>
-
-
+              src={Compte}
+              alt='un compte utilisteur'
+              height={25} />
           </div>
-      </div>
-       
-      <Form />
-      <div className={toggleModal === true ? "overlay-active": "overlay-inactive"}
-         onClick={closeActorModal}></div>
-         
-         <div className={toggleModal === true ? "show-modal": "hide-modal"}>
-          <ActorDetails  actorDetails={actorDetails} />
-         </div>
-         <ActorsPopulars data={actorsData}
-         page={1}
+        </div>
+
+        <Form />
+        <div className={toggleModal === true ? "overlay-active" : "overlay-inactive"}
+          onClick={closeActorModal}></div>
+
+        <div className={toggleModal === true ? "show-modal" : "hide-modal"}>
+          <ActorDetails actorDetails={actorDetails} />
+        </div>
+        <ActorsPopulars /* data={actorsData} */
+          page={1}
           open={openActorModal}
-           getActorId={getActorId} />
-           <ActorsPopulars /* data={actorsData} */
-         page={2}
+          getActorId={getActorId} />
+        <ActorsPopulars /* data={actorsData} */
+          page={2}
           open={openActorModal}
-           getActorId={getActorId} />
-           <ActorsPopulars /* data={actorsData} */
-         page={3}
+          getActorId={getActorId} />
+        <ActorsPopulars /* data={actorsData} */
+          page={3}
           open={openActorModal}
-           getActorId={getActorId} />
+          getActorId={getActorId} />
       </div>
 
     </div>
